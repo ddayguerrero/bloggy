@@ -23,7 +23,7 @@ class User(db.Model):
         try:
             return unicode(self.id)
         except NameError:
-            return str(str.id)
+            return str(self.id)
 
     def __repr__(self):
         return '<User %r>' % (self.nickname)
