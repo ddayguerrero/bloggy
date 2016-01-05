@@ -47,6 +47,12 @@ def before_request():
     g.user = current_user
 
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
 @oid.after_login
 def after_login(resp):
     if resp.email is None or resp.email == "":
