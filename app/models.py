@@ -9,8 +9,7 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def avatar(self, size):
-        return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(
-            self.email.encode('utc-8')).hexdigest(), size)
+        return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
 
     @property
     def is_authenticated(self):
