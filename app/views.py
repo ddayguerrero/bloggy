@@ -110,7 +110,7 @@ def edit():
         form.nickname.data = g.user.nickname
         form.about_me.data = g.user.about_me
     return render_template('edit.html', form=form)
-        
+
 
 @lm.user_loader
 def load_user(id):
